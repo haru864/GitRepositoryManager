@@ -1,0 +1,15 @@
+usage: grm [scan|check|list|all] <directory>
+
+directory must be specified when you use "scan" or "all".
+
+grm scan <directory>
+    Search <directory> and those under it for Git local repogitory.
+
+grm check
+    Check the repogitories found by "scan" for differences from the remote.
+
+grm list
+    Display the result of "check".
+
+grm all <directory>
+    Execute "scan", "check" and "list" at once.

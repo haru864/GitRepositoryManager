@@ -1,3 +1,3 @@
 cmake_minimum_required(VERSION 3.13)
 project(GitRepositoryManager)
-add_executable(GitRepositoryManager GitRepositoryManager.cpp)
+add_executable(grm grm.cpp)

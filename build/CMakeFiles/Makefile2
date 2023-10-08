@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/haru/project/GitRepositoryManager/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/GitRepositoryManager.dir/all
+all: CMakeFiles/grm.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/GitRepositoryManager.dir/clean
+clean: CMakeFiles/grm.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/GitRepositoryManager.dir
+# Target rules for target CMakeFiles/grm.dir
 
 # All Build rule for target.
-CMakeFiles/GitRepositoryManager.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=1,2 "Built target GitRepositoryManager"
-.PHONY : CMakeFiles/GitRepositoryManager.dir/all
+CMakeFiles/grm.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=1,2 "Built target grm"
+.PHONY : CMakeFiles/grm.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/GitRepositoryManager.dir/rule: cmake_check_build_system
+CMakeFiles/grm.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/haru/project/GitRepositoryManager/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GitRepositoryManager.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/grm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/haru/project/GitRepositoryManager/build/CMakeFiles 0
-.PHONY : CMakeFiles/GitRepositoryManager.dir/rule
+.PHONY : CMakeFiles/grm.dir/rule
 
 # Convenience name for target.
-GitRepositoryManager: CMakeFiles/GitRepositoryManager.dir/rule
-.PHONY : GitRepositoryManager
+grm: CMakeFiles/grm.dir/rule
+.PHONY : grm
 
 # clean rule for target.
-CMakeFiles/GitRepositoryManager.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/clean
-.PHONY : CMakeFiles/GitRepositoryManager.dir/clean
+CMakeFiles/grm.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/clean
+.PHONY : CMakeFiles/grm.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

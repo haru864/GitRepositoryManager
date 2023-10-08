@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named GitRepositoryManager
+# Target rules for targets named grm
 
 # Build rule for target.
-GitRepositoryManager: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GitRepositoryManager
-.PHONY : GitRepositoryManager
+grm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 grm
+.PHONY : grm
 
 # fast build rule for target.
-GitRepositoryManager/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/build
-.PHONY : GitRepositoryManager/fast
+grm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/build
+.PHONY : grm/fast
 
-GitRepositoryManager.o: GitRepositoryManager.cpp.o
-.PHONY : GitRepositoryManager.o
+grm.o: grm.cpp.o
+.PHONY : grm.o
 
 # target to build an object file
-GitRepositoryManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/GitRepositoryManager.cpp.o
-.PHONY : GitRepositoryManager.cpp.o
+grm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/grm.cpp.o
+.PHONY : grm.cpp.o
 
-GitRepositoryManager.i: GitRepositoryManager.cpp.i
-.PHONY : GitRepositoryManager.i
+grm.i: grm.cpp.i
+.PHONY : grm.i
 
 # target to preprocess a source file
-GitRepositoryManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/GitRepositoryManager.cpp.i
-.PHONY : GitRepositoryManager.cpp.i
+grm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/grm.cpp.i
+.PHONY : grm.cpp.i
 
-GitRepositoryManager.s: GitRepositoryManager.cpp.s
-.PHONY : GitRepositoryManager.s
+grm.s: grm.cpp.s
+.PHONY : grm.s
 
 # target to generate assembly for a file
-GitRepositoryManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/GitRepositoryManager.cpp.s
-.PHONY : GitRepositoryManager.cpp.s
+grm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/grm.cpp.s
+.PHONY : grm.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... GitRepositoryManager"
-	@echo "... GitRepositoryManager.o"
-	@echo "... GitRepositoryManager.i"
-	@echo "... GitRepositoryManager.s"
+	@echo "... grm"
+	@echo "... grm.o"
+	@echo "... grm.i"
+	@echo "... grm.s"
 .PHONY : help
 
 

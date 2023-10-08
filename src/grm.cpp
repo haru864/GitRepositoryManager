@@ -6,11 +6,11 @@
 #include <limits.h>
 #include <stdio.h>
 #include <libgen.h>
+#include <regex>
 
 using namespace std;
 
 const int BUFFER_SIZE = 256;
-const string HELP_OPTION = "--help";
 const vector<string> AVAILABLE_OPTION = {"scan", "check", "list", "all", "--help"};
 
 vector<string> getLocalRepogitoryList(string dirPath)
@@ -28,9 +28,9 @@ vector<string> getLocalRepogitoryList(string dirPath)
     while (fgets(buffer, BUFFER_SIZE, pipe) != NULL)
     {
 
-        string line = buffer;
-
-        result.push_back(line);
+        string path = buffer;
+        string trimmedPath = regex_replace(path, regex("/.git\n"), "\n");
+        result.push_back(trimmedPath);
     }
 
     pclose(pipe);
@@ -64,45 +64,79 @@ int main(int argc, char **argv)
             isAvailableOption = true;
         }
     }
+    if ((givenOption == "scan" || givenOption == "all") && argc < 3)
+    {
+        isAvailableOption = false;
+    }
     if (!isAvailableOption)
     {
-        cerr << "GIven option is not available." << endl;
+        cerr << "Given option is not available." << endl;
         cerr << "To see how to use the command, set --help as an argument." << endl;
         return 1;
     }
 
-    if (argv[1] == HELP_OPTION)
+    char result[PATH_MAX];
+    ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+    if (count == -1)
+    {
+        cerr << "Cannot read /proc/self/exe" << endl;
+        return 1;
+    }
+    char *executableFileDirectory = dirname(result);
+    char *parentDirectory = dirname(executableFileDirectory);
+    string additionalPathForScanResult = "/tmp/repository_abspath_list.txt";
+    string additionalPathForCheckResult = "/tmp/check_result.txt";
+    const string scanResultFile = parentDirectory + additionalPathForScanResult;
+    const string checkResultFile = parentDirectory + additionalPathForCheckResult;
+
+    if (givenOption == "--help")
     {
         try
         {
-            char result[PATH_MAX];
-            ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
-            if (count == -1)
-            {
-                throw runtime_error("Cannot read manual file.");
-            }
-            char *executableFileDirectory = dirname(result);
-            char *parentDirectory = dirname(executableFileDirectory);
             string additionalPathForManualFilePath = "/manual/manual.txt";
-            string manualFileDirectory = parentDirectory + additionalPathForManualFilePath;
-            FILE *f = fopen(manualFileDirectory.c_str(), "r");
+            string manualFile = parentDirectory + additionalPathForManualFilePath;
+            FILE *f = fopen(manualFile.c_str(), "r");
             char buffer[BUFFER_SIZE];
             while (fgets(buffer, sizeof(buffer), f) != NULL)
             {
                 cout << buffer;
             }
+            fclose(f);
         }
         catch (const exception &e)
         {
             cerr << e.what() << endl;
             return 1;
         }
-        return 0;
     }
-
-    string dirPath = "";
-
-    // vector<string> localRepoList = getLocalRepogitoryList(dirPath);
+    else if (givenOption == "scan")
+    {
+        try
+        {
+            const string dirPath = argv[2];
+            vector<string> localRepoList = getLocalRepogitoryList(dirPath);
+            FILE *f = fopen(scanResultFile.c_str(), "w");
+            for (auto path : localRepoList)
+            {
+                fprintf(f, path.c_str());
+            }
+            fclose(f);
+        }
+        catch (const exception &e)
+        {
+            cerr << e.what() << endl;
+            return 1;
+        }
+    }
+    else if (givenOption == "check")
+    {
+    }
+    else if (givenOption == "list")
+    {
+    }
+    else if (givenOption == "all")
+    {
+    }
 
     return 0;
 }

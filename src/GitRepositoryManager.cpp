@@ -10,7 +10,8 @@
 using namespace std;
 
 const int BUFFER_SIZE = 256;
-const string HELP_ARGUMENT = "--help";
+const string HELP_OPTION = "--help";
+const vector<string> AVAILABLE_OPTION = {"scan", "check", "list", "all", "--help"};
 
 vector<string> getLocalRepogitoryList(string dirPath)
 {
@@ -54,7 +55,23 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    if (argv[1] == HELP_ARGUMENT)
+    string givenOption = argv[1];
+    bool isAvailableOption = false;
+    for (auto option : AVAILABLE_OPTION)
+    {
+        if (givenOption == option)
+        {
+            isAvailableOption = true;
+        }
+    }
+    if (!isAvailableOption)
+    {
+        cerr << "GIven option is not available." << endl;
+        cerr << "To see how to use the command, set --help as an argument." << endl;
+        return 1;
+    }
+
+    if (argv[1] == HELP_OPTION)
     {
         try
         {
@@ -68,7 +85,6 @@ int main(int argc, char **argv)
             char *parentDirectory = dirname(executableFileDirectory);
             string additionalPathForManualFilePath = "/manual/manual.txt";
             string manualFileDirectory = parentDirectory + additionalPathForManualFilePath;
-            // cout << manualFileDirectory << endl;
             FILE *f = fopen(manualFileDirectory.c_str(), "r");
             char buffer[BUFFER_SIZE];
             while (fgets(buffer, sizeof(buffer), f) != NULL)

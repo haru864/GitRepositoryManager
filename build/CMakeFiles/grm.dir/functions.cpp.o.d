@@ -1,5 +1,5 @@
-CMakeFiles/grm.dir/grm.cpp.o: \
- /home/haru/project/GitRepositoryManager/src/grm.cpp \
+CMakeFiles/grm.dir/functions.cpp.o: \
+ /home/haru/project/GitRepositoryManager/src/functions.cpp \
  /usr/include/stdc-predef.h \
  /home/haru/project/GitRepositoryManager/src/common.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \

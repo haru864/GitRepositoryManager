@@ -81,12 +81,12 @@ clean: CMakeFiles/grm.dir/clean
 CMakeFiles/grm.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=1,2 "Built target grm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=1,2,3,4 "Built target grm"
 .PHONY : CMakeFiles/grm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/grm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/haru/project/GitRepositoryManager/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/haru/project/GitRepositoryManager/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/grm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/haru/project/GitRepositoryManager/build/CMakeFiles 0
 .PHONY : CMakeFiles/grm.dir/rule

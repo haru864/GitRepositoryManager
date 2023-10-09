@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/haru/project/GitRepositoryManager/src/common.cpp" "CMakeFiles/grm.dir/common.cpp.o" "gcc" "CMakeFiles/grm.dir/common.cpp.o.d"
+  "/home/haru/project/GitRepositoryManager/src/functions.cpp" "CMakeFiles/grm.dir/functions.cpp.o" "gcc" "CMakeFiles/grm.dir/functions.cpp.o.d"
   "/home/haru/project/GitRepositoryManager/src/grm.cpp" "CMakeFiles/grm.dir/grm.cpp.o" "gcc" "CMakeFiles/grm.dir/grm.cpp.o.d"
   )
 

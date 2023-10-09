@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/grm.dir/common.cpp.o"
+  "CMakeFiles/grm.dir/common.cpp.o.d"
+  "CMakeFiles/grm.dir/functions.cpp.o"
+  "CMakeFiles/grm.dir/functions.cpp.o.d"
   "CMakeFiles/grm.dir/grm.cpp.o"
   "CMakeFiles/grm.dir/grm.cpp.o.d"
   "grm"

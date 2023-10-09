@@ -1,3 +1,3 @@
 cmake_minimum_required(VERSION 3.13)
 project(GitRepositoryManager)
-add_executable(grm grm.cpp)
+add_executable(grm grm.cpp common.cpp functions.cpp)

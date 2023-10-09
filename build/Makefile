@@ -129,6 +129,54 @@ grm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/build
 .PHONY : grm/fast
 
+common.o: common.cpp.o
+.PHONY : common.o
+
+# target to build an object file
+common.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/common.cpp.o
+.PHONY : common.cpp.o
+
+common.i: common.cpp.i
+.PHONY : common.i
+
+# target to preprocess a source file
+common.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/common.cpp.i
+.PHONY : common.cpp.i
+
+common.s: common.cpp.s
+.PHONY : common.s
+
+# target to generate assembly for a file
+common.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/common.cpp.s
+.PHONY : common.cpp.s
+
+functions.o: functions.cpp.o
+.PHONY : functions.o
+
+# target to build an object file
+functions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/functions.cpp.o
+.PHONY : functions.cpp.o
+
+functions.i: functions.cpp.i
+.PHONY : functions.i
+
+# target to preprocess a source file
+functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/functions.cpp.i
+.PHONY : functions.cpp.i
+
+functions.s: functions.cpp.s
+.PHONY : functions.s
+
+# target to generate assembly for a file
+functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/functions.cpp.s
+.PHONY : functions.cpp.s
+
 grm.o: grm.cpp.o
 .PHONY : grm.o
 
@@ -162,6 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... grm"
+	@echo "... common.o"
+	@echo "... common.i"
+	@echo "... common.s"
+	@echo "... functions.o"
+	@echo "... functions.i"
+	@echo "... functions.s"
 	@echo "... grm.o"
 	@echo "... grm.i"
 	@echo "... grm.s"

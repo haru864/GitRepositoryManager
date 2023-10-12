@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/haru/project/GitRepositoryManager/src
+CMAKE_SOURCE_DIR = /home/haru/project/GitRepositoryManager
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/haru/project/GitRepositoryManager/build
@@ -69,61 +69,62 @@ include CMakeFiles/grm.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/grm.dir/flags.make
 
-CMakeFiles/grm.dir/grm.cpp.o: CMakeFiles/grm.dir/flags.make
-CMakeFiles/grm.dir/grm.cpp.o: /home/haru/project/GitRepositoryManager/src/grm.cpp
-CMakeFiles/grm.dir/grm.cpp.o: CMakeFiles/grm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/grm.dir/grm.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/grm.dir/grm.cpp.o -MF CMakeFiles/grm.dir/grm.cpp.o.d -o CMakeFiles/grm.dir/grm.cpp.o -c /home/haru/project/GitRepositoryManager/src/grm.cpp
+CMakeFiles/grm.dir/src/grm.cpp.o: CMakeFiles/grm.dir/flags.make
+CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp
+CMakeFiles/grm.dir/src/grm.cpp.o: CMakeFiles/grm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/grm.dir/src/grm.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/grm.dir/src/grm.cpp.o -MF CMakeFiles/grm.dir/src/grm.cpp.o.d -o CMakeFiles/grm.dir/src/grm.cpp.o -c /home/haru/project/GitRepositoryManager/src/grm.cpp
 
-CMakeFiles/grm.dir/grm.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grm.dir/grm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haru/project/GitRepositoryManager/src/grm.cpp > CMakeFiles/grm.dir/grm.cpp.i
+CMakeFiles/grm.dir/src/grm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grm.dir/src/grm.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haru/project/GitRepositoryManager/src/grm.cpp > CMakeFiles/grm.dir/src/grm.cpp.i
 
-CMakeFiles/grm.dir/grm.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grm.dir/grm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haru/project/GitRepositoryManager/src/grm.cpp -o CMakeFiles/grm.dir/grm.cpp.s
+CMakeFiles/grm.dir/src/grm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grm.dir/src/grm.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haru/project/GitRepositoryManager/src/grm.cpp -o CMakeFiles/grm.dir/src/grm.cpp.s
 
-CMakeFiles/grm.dir/common.cpp.o: CMakeFiles/grm.dir/flags.make
-CMakeFiles/grm.dir/common.cpp.o: /home/haru/project/GitRepositoryManager/src/common.cpp
-CMakeFiles/grm.dir/common.cpp.o: CMakeFiles/grm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/grm.dir/common.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/grm.dir/common.cpp.o -MF CMakeFiles/grm.dir/common.cpp.o.d -o CMakeFiles/grm.dir/common.cpp.o -c /home/haru/project/GitRepositoryManager/src/common.cpp
+CMakeFiles/grm.dir/src/common.cpp.o: CMakeFiles/grm.dir/flags.make
+CMakeFiles/grm.dir/src/common.cpp.o: ../src/common.cpp
+CMakeFiles/grm.dir/src/common.cpp.o: CMakeFiles/grm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/grm.dir/src/common.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/grm.dir/src/common.cpp.o -MF CMakeFiles/grm.dir/src/common.cpp.o.d -o CMakeFiles/grm.dir/src/common.cpp.o -c /home/haru/project/GitRepositoryManager/src/common.cpp
 
-CMakeFiles/grm.dir/common.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grm.dir/common.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haru/project/GitRepositoryManager/src/common.cpp > CMakeFiles/grm.dir/common.cpp.i
+CMakeFiles/grm.dir/src/common.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grm.dir/src/common.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haru/project/GitRepositoryManager/src/common.cpp > CMakeFiles/grm.dir/src/common.cpp.i
 
-CMakeFiles/grm.dir/common.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grm.dir/common.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haru/project/GitRepositoryManager/src/common.cpp -o CMakeFiles/grm.dir/common.cpp.s
+CMakeFiles/grm.dir/src/common.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grm.dir/src/common.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haru/project/GitRepositoryManager/src/common.cpp -o CMakeFiles/grm.dir/src/common.cpp.s
 
-CMakeFiles/grm.dir/functions.cpp.o: CMakeFiles/grm.dir/flags.make
-CMakeFiles/grm.dir/functions.cpp.o: /home/haru/project/GitRepositoryManager/src/functions.cpp
-CMakeFiles/grm.dir/functions.cpp.o: CMakeFiles/grm.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/grm.dir/functions.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/grm.dir/functions.cpp.o -MF CMakeFiles/grm.dir/functions.cpp.o.d -o CMakeFiles/grm.dir/functions.cpp.o -c /home/haru/project/GitRepositoryManager/src/functions.cpp
+CMakeFiles/grm.dir/src/functions.cpp.o: CMakeFiles/grm.dir/flags.make
+CMakeFiles/grm.dir/src/functions.cpp.o: ../src/functions.cpp
+CMakeFiles/grm.dir/src/functions.cpp.o: CMakeFiles/grm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/grm.dir/src/functions.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/grm.dir/src/functions.cpp.o -MF CMakeFiles/grm.dir/src/functions.cpp.o.d -o CMakeFiles/grm.dir/src/functions.cpp.o -c /home/haru/project/GitRepositoryManager/src/functions.cpp
 
-CMakeFiles/grm.dir/functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grm.dir/functions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haru/project/GitRepositoryManager/src/functions.cpp > CMakeFiles/grm.dir/functions.cpp.i
+CMakeFiles/grm.dir/src/functions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grm.dir/src/functions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/haru/project/GitRepositoryManager/src/functions.cpp > CMakeFiles/grm.dir/src/functions.cpp.i
 
-CMakeFiles/grm.dir/functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grm.dir/functions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haru/project/GitRepositoryManager/src/functions.cpp -o CMakeFiles/grm.dir/functions.cpp.s
+CMakeFiles/grm.dir/src/functions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grm.dir/src/functions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/haru/project/GitRepositoryManager/src/functions.cpp -o CMakeFiles/grm.dir/src/functions.cpp.s
 
 # Object files for target grm
 grm_OBJECTS = \
-"CMakeFiles/grm.dir/grm.cpp.o" \
-"CMakeFiles/grm.dir/common.cpp.o" \
-"CMakeFiles/grm.dir/functions.cpp.o"
+"CMakeFiles/grm.dir/src/grm.cpp.o" \
+"CMakeFiles/grm.dir/src/common.cpp.o" \
+"CMakeFiles/grm.dir/src/functions.cpp.o"
 
 # External object files for target grm
 grm_EXTERNAL_OBJECTS =
 
-grm: CMakeFiles/grm.dir/grm.cpp.o
-grm: CMakeFiles/grm.dir/common.cpp.o
-grm: CMakeFiles/grm.dir/functions.cpp.o
+grm: CMakeFiles/grm.dir/src/grm.cpp.o
+grm: CMakeFiles/grm.dir/src/common.cpp.o
+grm: CMakeFiles/grm.dir/src/functions.cpp.o
 grm: CMakeFiles/grm.dir/build.make
+grm: ../libs/libgit2.so.1.7
 grm: CMakeFiles/grm.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/haru/project/GitRepositoryManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable grm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/grm.dir/link.txt --verbose=$(VERBOSE)
@@ -137,6 +138,6 @@ CMakeFiles/grm.dir/clean:
 .PHONY : CMakeFiles/grm.dir/clean
 
 CMakeFiles/grm.dir/depend:
-	cd /home/haru/project/GitRepositoryManager/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/haru/project/GitRepositoryManager/src /home/haru/project/GitRepositoryManager/src /home/haru/project/GitRepositoryManager/build /home/haru/project/GitRepositoryManager/build /home/haru/project/GitRepositoryManager/build/CMakeFiles/grm.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/haru/project/GitRepositoryManager/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/haru/project/GitRepositoryManager /home/haru/project/GitRepositoryManager /home/haru/project/GitRepositoryManager/build /home/haru/project/GitRepositoryManager/build /home/haru/project/GitRepositoryManager/build/CMakeFiles/grm.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/grm.dir/depend
 

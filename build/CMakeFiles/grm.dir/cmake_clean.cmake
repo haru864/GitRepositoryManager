@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/grm.dir/common.cpp.o"
-  "CMakeFiles/grm.dir/common.cpp.o.d"
-  "CMakeFiles/grm.dir/functions.cpp.o"
-  "CMakeFiles/grm.dir/functions.cpp.o.d"
-  "CMakeFiles/grm.dir/grm.cpp.o"
-  "CMakeFiles/grm.dir/grm.cpp.o.d"
+  "CMakeFiles/grm.dir/src/common.cpp.o"
+  "CMakeFiles/grm.dir/src/common.cpp.o.d"
+  "CMakeFiles/grm.dir/src/functions.cpp.o"
+  "CMakeFiles/grm.dir/src/functions.cpp.o.d"
+  "CMakeFiles/grm.dir/src/grm.cpp.o"
+  "CMakeFiles/grm.dir/src/grm.cpp.o.d"
   "grm"
   "grm.pdb"
 )

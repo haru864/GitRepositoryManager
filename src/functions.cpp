@@ -1,5 +1,6 @@
 #include "common.hpp"
 #include "functions.hpp"
+#include "git2.h"
 
 vector<string> getLocalRepogitoryList(string dirPath)
 {
@@ -68,11 +69,35 @@ void check() noexcept
 {
     try
     {
+        git_libgit2_init();
+
         FILE *f = fopen(scanResultFileAbsPath.c_str(), "r");
         char buffer[BUFFER_SIZE];
+
         while (fgets(buffer, BUFFER_SIZE, f) != NULL)
         {
+            cerr << buffer << endl;
+
+            // sample
+            git_repository *repo;
+            string path = "/home/haru/project/Recursion/Recursion_RemoteProcedureCall";
+            int error = git_repository_open(&repo, path.c_str());
+            if (error < 0)
+            {
+                const git_error *e = giterr_last();
+                if (e)
+                {
+                    printf("Error %d: %s\n", e->klass, e->message);
+                }
+                else
+                {
+                    printf("Unknown error\n");
+                }
+                exit(EXIT_FAILURE);
+            }
         }
+
+        git_libgit2_shutdown();
     }
     catch (const exception &e)
     {

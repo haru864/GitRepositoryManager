@@ -26,8 +26,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 # 変更あり、add済み、commitなし
 --------------------------------------------------------
---------------------------------------------------------
+On branch main
+Your branch is up to date with 'origin/main'.
 
-# 変更あり、add済み、commit済み
---------------------------------------------------------
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   design/git_status.txt
+
 --------------------------------------------------------

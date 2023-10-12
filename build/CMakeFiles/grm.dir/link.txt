@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/grm.dir/grm.cpp.o CMakeFiles/grm.dir/common.cpp.o CMakeFiles/grm.dir/functions.cpp.o -o grm 
+/usr/bin/c++ CMakeFiles/grm.dir/src/grm.cpp.o CMakeFiles/grm.dir/src/common.cpp.o CMakeFiles/grm.dir/src/functions.cpp.o -o grm  -Wl,-rpath,/home/haru/project/GitRepositoryManager/libs ../libs/libgit2.so.1.7 

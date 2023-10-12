@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/haru/project/GitRepositoryManager/src
+CMAKE_SOURCE_DIR = /home/haru/project/GitRepositoryManager
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/haru/project/GitRepositoryManager/build
@@ -129,77 +129,77 @@ grm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/build
 .PHONY : grm/fast
 
-common.o: common.cpp.o
-.PHONY : common.o
+src/common.o: src/common.cpp.o
+.PHONY : src/common.o
 
 # target to build an object file
-common.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/common.cpp.o
-.PHONY : common.cpp.o
+src/common.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/common.cpp.o
+.PHONY : src/common.cpp.o
 
-common.i: common.cpp.i
-.PHONY : common.i
+src/common.i: src/common.cpp.i
+.PHONY : src/common.i
 
 # target to preprocess a source file
-common.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/common.cpp.i
-.PHONY : common.cpp.i
+src/common.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/common.cpp.i
+.PHONY : src/common.cpp.i
 
-common.s: common.cpp.s
-.PHONY : common.s
+src/common.s: src/common.cpp.s
+.PHONY : src/common.s
 
 # target to generate assembly for a file
-common.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/common.cpp.s
-.PHONY : common.cpp.s
+src/common.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/common.cpp.s
+.PHONY : src/common.cpp.s
 
-functions.o: functions.cpp.o
-.PHONY : functions.o
+src/functions.o: src/functions.cpp.o
+.PHONY : src/functions.o
 
 # target to build an object file
-functions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/functions.cpp.o
-.PHONY : functions.cpp.o
+src/functions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/functions.cpp.o
+.PHONY : src/functions.cpp.o
 
-functions.i: functions.cpp.i
-.PHONY : functions.i
+src/functions.i: src/functions.cpp.i
+.PHONY : src/functions.i
 
 # target to preprocess a source file
-functions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/functions.cpp.i
-.PHONY : functions.cpp.i
+src/functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/functions.cpp.i
+.PHONY : src/functions.cpp.i
 
-functions.s: functions.cpp.s
-.PHONY : functions.s
+src/functions.s: src/functions.cpp.s
+.PHONY : src/functions.s
 
 # target to generate assembly for a file
-functions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/functions.cpp.s
-.PHONY : functions.cpp.s
+src/functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/functions.cpp.s
+.PHONY : src/functions.cpp.s
 
-grm.o: grm.cpp.o
-.PHONY : grm.o
+src/grm.o: src/grm.cpp.o
+.PHONY : src/grm.o
 
 # target to build an object file
-grm.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/grm.cpp.o
-.PHONY : grm.cpp.o
+src/grm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/grm.cpp.o
+.PHONY : src/grm.cpp.o
 
-grm.i: grm.cpp.i
-.PHONY : grm.i
+src/grm.i: src/grm.cpp.i
+.PHONY : src/grm.i
 
 # target to preprocess a source file
-grm.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/grm.cpp.i
-.PHONY : grm.cpp.i
+src/grm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/grm.cpp.i
+.PHONY : src/grm.cpp.i
 
-grm.s: grm.cpp.s
-.PHONY : grm.s
+src/grm.s: src/grm.cpp.s
+.PHONY : src/grm.s
 
 # target to generate assembly for a file
-grm.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/grm.cpp.s
-.PHONY : grm.cpp.s
+src/grm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/grm.cpp.s
+.PHONY : src/grm.cpp.s
 
 # Help Target
 help:
@@ -210,15 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... grm"
-	@echo "... common.o"
-	@echo "... common.i"
-	@echo "... common.s"
-	@echo "... functions.o"
-	@echo "... functions.i"
-	@echo "... functions.s"
-	@echo "... grm.o"
-	@echo "... grm.i"
-	@echo "... grm.s"
+	@echo "... src/common.o"
+	@echo "... src/common.i"
+	@echo "... src/common.s"
+	@echo "... src/functions.o"
+	@echo "... src/functions.i"
+	@echo "... src/functions.s"
+	@echo "... src/grm.o"
+	@echo "... src/grm.i"
+	@echo "... src/grm.s"
 .PHONY : help
 
 

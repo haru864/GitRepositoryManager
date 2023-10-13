@@ -685,7 +685,65 @@ CMakeFiles/grm.dir/src/functions.cpp.o: ../src/functions.cpp \
   ../include/git2/tree.h \
   ../include/git2/types.h \
   ../include/git2/version.h \
-  ../include/git2/worktree.h
+  ../include/git2/worktree.h \
+  ../include/nlohmann/json.hpp \
+  /usr/include/c++/11/cstddef \
+  /usr/include/c++/11/forward_list \
+  /usr/include/c++/11/bits/forward_list.h \
+  /usr/include/c++/11/bits/forward_list.tcc \
+  /usr/include/c++/11/valarray \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/tr1/gamma.tcc \
+  /usr/include/c++/11/tr1/special_function_util.h \
+  /usr/include/c++/11/tr1/bessel_function.tcc \
+  /usr/include/c++/11/tr1/beta_function.tcc \
+  /usr/include/c++/11/tr1/ell_integral.tcc \
+  /usr/include/c++/11/tr1/exp_integral.tcc \
+  /usr/include/c++/11/tr1/hypergeometric.tcc \
+  /usr/include/c++/11/tr1/legendre_function.tcc \
+  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/11/tr1/poly_hermite.tcc \
+  /usr/include/c++/11/tr1/poly_laguerre.tcc \
+  /usr/include/c++/11/tr1/riemann_zeta.tcc \
+  /usr/include/c++/11/bits/valarray_array.h \
+  /usr/include/c++/11/bits/valarray_array.tcc \
+  /usr/include/c++/11/bits/valarray_before.h \
+  /usr/include/c++/11/bits/slice_array.h \
+  /usr/include/c++/11/bits/valarray_after.h \
+  /usr/include/c++/11/bits/gslice.h \
+  /usr/include/c++/11/bits/gslice_array.h \
+  /usr/include/c++/11/bits/mask_array.h \
+  /usr/include/c++/11/bits/indirect_array.h \
+  /usr/include/c++/11/version \
+  /usr/include/c++/11/cassert \
+  /usr/include/assert.h \
+  /usr/include/c++/11/filesystem \
+  /usr/include/c++/11/bits/fs_fwd.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/bits/fs_path.h \
+  /usr/include/c++/11/iomanip \
+  /usr/include/c++/11/bits/quoted_string.h \
+  /usr/include/c++/11/codecvt \
+  /usr/include/c++/11/bits/fs_dir.h \
+  /usr/include/c++/11/bits/fs_ops.h \
+  /usr/include/c++/11/numeric \
+  /usr/include/c++/11/bits/stl_numeric.h \
+  /usr/include/c++/11/pstl/glue_numeric_defs.h \
+  /usr/include/c++/11/any
 
 CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
   /usr/include/stdc-predef.h \
@@ -976,6 +1034,66 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
   ../src/functions.hpp
 
 
+/usr/include/c++/11/bits/stl_numeric.h:
+
+/usr/include/c++/11/numeric:
+
+/usr/include/c++/11/bits/fs_dir.h:
+
+/usr/include/c++/11/bits/quoted_string.h:
+
+/usr/include/c++/11/bits/parse_numbers.h:
+
+/usr/include/c++/11/ratio:
+
+/usr/include/assert.h:
+
+/usr/include/c++/11/cassert:
+
+/usr/include/c++/11/version:
+
+/usr/include/c++/11/bits/indirect_array.h:
+
+/usr/include/c++/11/bits/mask_array.h:
+
+/usr/include/c++/11/bits/gslice_array.h:
+
+/usr/include/c++/11/bits/valarray_after.h:
+
+/usr/include/c++/11/bits/slice_array.h:
+
+/usr/include/c++/11/bits/valarray_array.h:
+
+/usr/include/c++/11/tr1/riemann_zeta.tcc:
+
+/usr/include/c++/11/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/11/tr1/hypergeometric.tcc:
+
+/usr/include/c++/11/tr1/exp_integral.tcc:
+
+/usr/include/c++/11/tr1/ell_integral.tcc:
+
+/usr/include/c++/11/tr1/bessel_function.tcc:
+
+/usr/include/c++/11/tr1/special_function_util.h:
+
+/usr/include/c++/11/limits:
+
+/usr/include/c++/11/bits/specfun.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/c++/11/valarray:
+
+../include/nlohmann/json.hpp:
+
 ../include/git2/signature.h:
 
 ../include/git2/reset.h:
@@ -994,6 +1112,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 ../include/git2/mailmap.h:
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
 ../include/git2/ignore.h:
 
 ../include/git2/email.h:
@@ -1008,6 +1128,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 ../include/git2/stash.h:
 
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
 ../include/git2/rebase.h:
 
 ../include/git2/errors.h:
@@ -1021,6 +1143,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 ../include/git2/proxy.h:
 
 ../include/git2/pack.h:
+
+/usr/include/c++/11/filesystem:
 
 ../include/git2/credential.h:
 
@@ -1044,7 +1168,11 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 ../include/git2/cert.h:
 
+/usr/include/c++/11/bits/gslice.h:
+
 ../include/git2/branch.h:
+
+/usr/include/c++/11/tr1/poly_hermite.tcc:
 
 ../include/git2/blame.h:
 
@@ -1053,6 +1181,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 ../include/git2/tree.h:
 
 ../include/git2/diff.h:
+
+/usr/include/c++/11/bits/fs_ops.h:
 
 ../include/git2/experimental.h:
 
@@ -1071,6 +1201,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 ../include/git2/common.h:
 
 ../include/git2.h:
+
+/usr/include/c++/11/tr1/poly_laguerre.tcc:
 
 ../src/functions.hpp:
 
@@ -1106,9 +1238,13 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/c++/11/sstream:
 
+/usr/include/c++/11/forward_list:
+
 /usr/include/c++/11/pstl/glue_memory_defs.h:
 
 /usr/include/c++/11/backward/auto_ptr.h:
+
+/usr/include/c++/11/bits/valarray_array.tcc:
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
@@ -1156,6 +1292,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/c++/11/fstream:
 
+/usr/include/c++/11/pstl/glue_numeric_defs.h:
+
 ../include/git2/revert.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
@@ -1165,6 +1303,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
 /usr/include/c++/11/bits/localefwd.h:
+
+/usr/include/c++/11/iomanip:
 
 /usr/include/c++/11/cctype:
 
@@ -1200,6 +1340,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
+/usr/include/c++/11/bits/forward_list.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
 /usr/include/c++/11/cwchar:
@@ -1208,11 +1350,15 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
+/usr/include/math.h:
+
 ../include/git2/describe.h:
 
 /usr/include/c++/11/cstring:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/c++/11/iostream:
 
@@ -1258,6 +1404,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 ../src/common.cpp:
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
 ../include/git2/refs.h:
 
 /usr/include/c++/11/bits/postypes.h:
@@ -1278,6 +1426,10 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/linux/close_range.h:
 
+/usr/include/c++/11/chrono:
+
+/usr/include/c++/11/bits/forward_list.tcc:
+
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
@@ -1287,6 +1439,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/c++/11/pstl/pstl_config.h:
+
+/usr/include/c++/11/cmath:
 
 /usr/include/c++/11/bits/allocator.h:
 
@@ -1311,6 +1465,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/c++/11/bits/stl_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
@@ -1355,6 +1511,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
+
+/usr/include/c++/11/tr1/legendre_function.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
@@ -1412,6 +1570,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/libintl.h:
 
+/usr/include/c++/11/cstddef:
+
 /usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/c++/11/system_error:
@@ -1426,7 +1586,11 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/c++/11/initializer_list:
 
+/usr/include/c++/11/tr1/gamma.tcc:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/c++/11/bits/fs_fwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -1478,6 +1642,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
+/usr/include/c++/11/bits/fs_path.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/alloca.h:
@@ -1526,6 +1692,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/c++/11/iterator:
 
+/usr/include/c++/11/any:
+
 /usr/include/c++/11/bits/unique_ptr.h:
 
 /usr/include/c++/11/exception:
@@ -1557,6 +1725,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 /usr/include/c++/11/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/11/stdexcept:
+
+/usr/include/c++/11/codecvt:
 
 /usr/include/string.h:
 
@@ -1614,6 +1784,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 
+/usr/include/c++/11/bits/valarray_before.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h:
@@ -1651,6 +1823,8 @@ CMakeFiles/grm.dir/src/grm.cpp.o: ../src/grm.cpp \
 /usr/include/c++/11/bits/std_abs.h:
 
 /usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/c++/11/tr1/beta_function.tcc:
 
 /usr/include/c++/11/array:
 

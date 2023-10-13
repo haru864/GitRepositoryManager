@@ -20,7 +20,7 @@ void initGlobalVariables()
     char *executableFileDirectory = dirname(result);
     char *parentDirectory = dirname(executableFileDirectory);
     string additionalPathForScanResult = "/tmp/repository_abspath_list.txt";
-    string additionalPathForCheckResult = "/tmp/check_result.txt";
+    string additionalPathForCheckResult = "/tmp/check_result.json";
     string additionalPathForManualFilePath = "/manual/manual.txt";
     scanResultFileAbsPath = parentDirectory + additionalPathForScanResult;
     checkResultFileAbsPath = parentDirectory + additionalPathForCheckResult;

@@ -10,6 +10,3 @@ grm check
 
 grm list
     Display the result of "check".
-
-grm all <directory>
-    Execute "scan", "check" and "list" at once.

@@ -147,4 +147,25 @@ void check() noexcept
 
 void list() noexcept
 {
+    try
+    {
+        std::ifstream f(checkResultFileAbsPath);
+        json jsonData = json::parse(f);
+        f.close();
+        // cout << jsonData.dump() << endl;
+        for (json::iterator it = jsonData.begin(); it != jsonData.end(); ++it)
+        {
+            cout << "<" << it.key() << ">" << endl;
+            for (auto elem : it.value())
+            {
+                cout << elem << endl;
+            }
+            cout << endl;
+        }
+    }
+    catch (const exception &e)
+    {
+        cerr << e.what() << endl;
+        exit(1);
+    }
 }

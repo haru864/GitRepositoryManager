@@ -10,6 +10,5 @@ void help() noexcept;
 void scan(const string) noexcept;
 void check() noexcept;
 void list() noexcept;
-void all(const string) noexcept;
 
 #endif

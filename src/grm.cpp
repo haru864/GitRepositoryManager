@@ -54,9 +54,7 @@ int main(int argc, char **argv)
     }
     else if (givenOption == "list")
     {
-    }
-    else if (givenOption == "all")
-    {
+        list();
     }
 
     return 0;

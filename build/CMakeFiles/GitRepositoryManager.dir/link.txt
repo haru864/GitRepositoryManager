@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/GitRepositoryManager.dir/src/GitRepositoryManager.cpp.o CMakeFiles/GitRepositoryManager.dir/src/common.cpp.o CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o -o GitRepositoryManager  -Wl,-rpath,/home/haru/project/GitRepositoryManager/libs ../libs/libgit2.so.1.7 

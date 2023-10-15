@@ -149,7 +149,7 @@ void list() noexcept
 {
     try
     {
-        std::ifstream f(checkResultFileAbsPath);
+        ifstream f(checkResultFileAbsPath);
         json jsonData = json::parse(f);
         f.close();
         // cout << jsonData.dump() << endl;
@@ -168,4 +168,22 @@ void list() noexcept
         cerr << e.what() << endl;
         exit(1);
     }
+}
+
+vector<string> splitString(string str, string separator)
+{
+    vector<string> result;
+    auto offset = string::size_type(0);
+    while (1)
+    {
+        auto pos = str.find(separator, offset);
+        if (pos == string::npos)
+        {
+            result.push_back(str.substr(offset));
+            break;
+        }
+        result.push_back(str.substr(offset, pos - offset));
+        offset = pos + separator.length();
+    }
+    return result;
 }

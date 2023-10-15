@@ -1,5 +1,5 @@
-CMakeFiles/grm.dir/src/grm.cpp.o: \
- /home/haru/project/GitRepositoryManager/src/grm.cpp \
+CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o: \
+ /home/haru/project/GitRepositoryManager/src/functions.cpp \
  /usr/include/stdc-predef.h \
  /home/haru/project/GitRepositoryManager/src/common.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
@@ -230,5 +230,160 @@ CMakeFiles/grm.dir/src/grm.cpp.o: \
  /usr/include/c++/11/bits/regex_compiler.tcc \
  /usr/include/c++/11/bits/regex.h /usr/include/c++/11/bits/regex.tcc \
  /usr/include/c++/11/bits/regex_executor.h \
- /usr/include/c++/11/bits/regex_executor.tcc \
- /home/haru/project/GitRepositoryManager/src/functions.hpp
+ /usr/include/c++/11/bits/regex_executor.tcc /usr/include/c++/11/variant \
+ /usr/include/c++/11/bits/parse_numbers.h \
+ /home/haru/project/GitRepositoryManager/src/functions.hpp \
+ /home/haru/project/GitRepositoryManager/include/git2.h \
+ /home/haru/project/GitRepositoryManager/include/git2/annotated_commit.h \
+ /home/haru/project/GitRepositoryManager/include/git2/common.h \
+ /usr/include/c++/11/stdlib.h /usr/include/inttypes.h \
+ /home/haru/project/GitRepositoryManager/include/git2/repository.h \
+ /home/haru/project/GitRepositoryManager/include/git2/types.h \
+ /home/haru/project/GitRepositoryManager/include/git2/buffer.h \
+ /home/haru/project/GitRepositoryManager/include/git2/oid.h \
+ /home/haru/project/GitRepositoryManager/include/git2/experimental.h \
+ /home/haru/project/GitRepositoryManager/include/git2/apply.h \
+ /home/haru/project/GitRepositoryManager/include/git2/diff.h \
+ /home/haru/project/GitRepositoryManager/include/git2/tree.h \
+ /home/haru/project/GitRepositoryManager/include/git2/object.h \
+ /home/haru/project/GitRepositoryManager/include/git2/refs.h \
+ /home/haru/project/GitRepositoryManager/include/git2/strarray.h \
+ /home/haru/project/GitRepositoryManager/include/git2/attr.h \
+ /home/haru/project/GitRepositoryManager/include/git2/blob.h \
+ /home/haru/project/GitRepositoryManager/include/git2/blame.h \
+ /home/haru/project/GitRepositoryManager/include/git2/branch.h \
+ /home/haru/project/GitRepositoryManager/include/git2/buffer.h \
+ /home/haru/project/GitRepositoryManager/include/git2/cert.h \
+ /home/haru/project/GitRepositoryManager/include/git2/checkout.h \
+ /home/haru/project/GitRepositoryManager/include/git2/cherrypick.h \
+ /home/haru/project/GitRepositoryManager/include/git2/merge.h \
+ /home/haru/project/GitRepositoryManager/include/git2/oidarray.h \
+ /home/haru/project/GitRepositoryManager/include/git2/checkout.h \
+ /home/haru/project/GitRepositoryManager/include/git2/index.h \
+ /home/haru/project/GitRepositoryManager/include/git2/indexer.h \
+ /home/haru/project/GitRepositoryManager/include/git2/annotated_commit.h \
+ /home/haru/project/GitRepositoryManager/include/git2/clone.h \
+ /home/haru/project/GitRepositoryManager/include/git2/remote.h \
+ /home/haru/project/GitRepositoryManager/include/git2/refspec.h \
+ /home/haru/project/GitRepositoryManager/include/git2/net.h \
+ /home/haru/project/GitRepositoryManager/include/git2/transport.h \
+ /home/haru/project/GitRepositoryManager/include/git2/cert.h \
+ /home/haru/project/GitRepositoryManager/include/git2/credential.h \
+ /home/haru/project/GitRepositoryManager/include/git2/pack.h \
+ /home/haru/project/GitRepositoryManager/include/git2/proxy.h \
+ /home/haru/project/GitRepositoryManager/include/git2/commit.h \
+ /home/haru/project/GitRepositoryManager/include/git2/common.h \
+ /home/haru/project/GitRepositoryManager/include/git2/config.h \
+ /home/haru/project/GitRepositoryManager/include/git2/credential.h \
+ /home/haru/project/GitRepositoryManager/include/git2/deprecated.h \
+ /home/haru/project/GitRepositoryManager/include/git2/attr.h \
+ /home/haru/project/GitRepositoryManager/include/git2/config.h \
+ /home/haru/project/GitRepositoryManager/include/git2/blame.h \
+ /home/haru/project/GitRepositoryManager/include/git2/cherrypick.h \
+ /home/haru/project/GitRepositoryManager/include/git2/clone.h \
+ /home/haru/project/GitRepositoryManager/include/git2/describe.h \
+ /home/haru/project/GitRepositoryManager/include/git2/errors.h \
+ /home/haru/project/GitRepositoryManager/include/git2/filter.h \
+ /home/haru/project/GitRepositoryManager/include/git2/rebase.h \
+ /home/haru/project/GitRepositoryManager/include/git2/commit.h \
+ /home/haru/project/GitRepositoryManager/include/git2/trace.h \
+ /home/haru/project/GitRepositoryManager/include/git2/revert.h \
+ /home/haru/project/GitRepositoryManager/include/git2/revparse.h \
+ /home/haru/project/GitRepositoryManager/include/git2/stash.h \
+ /home/haru/project/GitRepositoryManager/include/git2/status.h \
+ /home/haru/project/GitRepositoryManager/include/git2/submodule.h \
+ /home/haru/project/GitRepositoryManager/include/git2/worktree.h \
+ /home/haru/project/GitRepositoryManager/include/git2/credential_helpers.h \
+ /home/haru/project/GitRepositoryManager/include/git2/sys/credential.h \
+ /home/haru/project/GitRepositoryManager/include/git2/common.h \
+ /home/haru/project/GitRepositoryManager/include/git2/credential.h \
+ /home/haru/project/GitRepositoryManager/include/git2/describe.h \
+ /home/haru/project/GitRepositoryManager/include/git2/diff.h \
+ /home/haru/project/GitRepositoryManager/include/git2/email.h \
+ /home/haru/project/GitRepositoryManager/include/git2/errors.h \
+ /home/haru/project/GitRepositoryManager/include/git2/experimental.h \
+ /home/haru/project/GitRepositoryManager/include/git2/filter.h \
+ /home/haru/project/GitRepositoryManager/include/git2/global.h \
+ /home/haru/project/GitRepositoryManager/include/git2/graph.h \
+ /home/haru/project/GitRepositoryManager/include/git2/ignore.h \
+ /home/haru/project/GitRepositoryManager/include/git2/index.h \
+ /home/haru/project/GitRepositoryManager/include/git2/indexer.h \
+ /home/haru/project/GitRepositoryManager/include/git2/mailmap.h \
+ /home/haru/project/GitRepositoryManager/include/git2/merge.h \
+ /home/haru/project/GitRepositoryManager/include/git2/message.h \
+ /home/haru/project/GitRepositoryManager/include/git2/net.h \
+ /home/haru/project/GitRepositoryManager/include/git2/notes.h \
+ /home/haru/project/GitRepositoryManager/include/git2/object.h \
+ /home/haru/project/GitRepositoryManager/include/git2/odb.h \
+ /home/haru/project/GitRepositoryManager/include/git2/odb_backend.h \
+ /home/haru/project/GitRepositoryManager/include/git2/oid.h \
+ /home/haru/project/GitRepositoryManager/include/git2/pack.h \
+ /home/haru/project/GitRepositoryManager/include/git2/patch.h \
+ /home/haru/project/GitRepositoryManager/include/git2/pathspec.h \
+ /home/haru/project/GitRepositoryManager/include/git2/proxy.h \
+ /home/haru/project/GitRepositoryManager/include/git2/rebase.h \
+ /home/haru/project/GitRepositoryManager/include/git2/refdb.h \
+ /home/haru/project/GitRepositoryManager/include/git2/reflog.h \
+ /home/haru/project/GitRepositoryManager/include/git2/refs.h \
+ /home/haru/project/GitRepositoryManager/include/git2/refspec.h \
+ /home/haru/project/GitRepositoryManager/include/git2/remote.h \
+ /home/haru/project/GitRepositoryManager/include/git2/repository.h \
+ /home/haru/project/GitRepositoryManager/include/git2/reset.h \
+ /home/haru/project/GitRepositoryManager/include/git2/revert.h \
+ /home/haru/project/GitRepositoryManager/include/git2/revparse.h \
+ /home/haru/project/GitRepositoryManager/include/git2/revwalk.h \
+ /home/haru/project/GitRepositoryManager/include/git2/signature.h \
+ /home/haru/project/GitRepositoryManager/include/git2/stash.h \
+ /home/haru/project/GitRepositoryManager/include/git2/status.h \
+ /home/haru/project/GitRepositoryManager/include/git2/submodule.h \
+ /home/haru/project/GitRepositoryManager/include/git2/tag.h \
+ /home/haru/project/GitRepositoryManager/include/git2/transport.h \
+ /home/haru/project/GitRepositoryManager/include/git2/transaction.h \
+ /home/haru/project/GitRepositoryManager/include/git2/tree.h \
+ /home/haru/project/GitRepositoryManager/include/git2/types.h \
+ /home/haru/project/GitRepositoryManager/include/git2/version.h \
+ /home/haru/project/GitRepositoryManager/include/git2/worktree.h \
+ /home/haru/project/GitRepositoryManager/include/nlohmann/json.hpp \
+ /usr/include/c++/11/cstddef /usr/include/c++/11/forward_list \
+ /usr/include/c++/11/bits/forward_list.h \
+ /usr/include/c++/11/bits/forward_list.tcc /usr/include/c++/11/valarray \
+ /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
+ /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/tr1/special_function_util.h \
+ /usr/include/c++/11/tr1/bessel_function.tcc \
+ /usr/include/c++/11/tr1/beta_function.tcc \
+ /usr/include/c++/11/tr1/ell_integral.tcc \
+ /usr/include/c++/11/tr1/exp_integral.tcc \
+ /usr/include/c++/11/tr1/hypergeometric.tcc \
+ /usr/include/c++/11/tr1/legendre_function.tcc \
+ /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/11/tr1/poly_hermite.tcc \
+ /usr/include/c++/11/tr1/poly_laguerre.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /usr/include/c++/11/bits/valarray_array.h \
+ /usr/include/c++/11/bits/valarray_array.tcc \
+ /usr/include/c++/11/bits/valarray_before.h \
+ /usr/include/c++/11/bits/slice_array.h \
+ /usr/include/c++/11/bits/valarray_after.h \
+ /usr/include/c++/11/bits/gslice.h \
+ /usr/include/c++/11/bits/gslice_array.h \
+ /usr/include/c++/11/bits/mask_array.h \
+ /usr/include/c++/11/bits/indirect_array.h /usr/include/c++/11/version \
+ /usr/include/c++/11/cassert /usr/include/assert.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
+ /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any

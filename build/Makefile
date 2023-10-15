@@ -117,24 +117,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named grm
+# Target rules for targets named GitRepositoryManager
 
 # Build rule for target.
-grm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 grm
-.PHONY : grm
+GitRepositoryManager: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GitRepositoryManager
+.PHONY : GitRepositoryManager
 
 # fast build rule for target.
-grm/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/build
-.PHONY : grm/fast
+GitRepositoryManager/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/build
+.PHONY : GitRepositoryManager/fast
+
+src/GitRepositoryManager.o: src/GitRepositoryManager.cpp.o
+.PHONY : src/GitRepositoryManager.o
+
+# target to build an object file
+src/GitRepositoryManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/GitRepositoryManager.cpp.o
+.PHONY : src/GitRepositoryManager.cpp.o
+
+src/GitRepositoryManager.i: src/GitRepositoryManager.cpp.i
+.PHONY : src/GitRepositoryManager.i
+
+# target to preprocess a source file
+src/GitRepositoryManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/GitRepositoryManager.cpp.i
+.PHONY : src/GitRepositoryManager.cpp.i
+
+src/GitRepositoryManager.s: src/GitRepositoryManager.cpp.s
+.PHONY : src/GitRepositoryManager.s
+
+# target to generate assembly for a file
+src/GitRepositoryManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/GitRepositoryManager.cpp.s
+.PHONY : src/GitRepositoryManager.cpp.s
 
 src/common.o: src/common.cpp.o
 .PHONY : src/common.o
 
 # target to build an object file
 src/common.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/common.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/common.cpp.o
 .PHONY : src/common.cpp.o
 
 src/common.i: src/common.cpp.i
@@ -142,7 +166,7 @@ src/common.i: src/common.cpp.i
 
 # target to preprocess a source file
 src/common.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/common.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/common.cpp.i
 .PHONY : src/common.cpp.i
 
 src/common.s: src/common.cpp.s
@@ -150,7 +174,7 @@ src/common.s: src/common.cpp.s
 
 # target to generate assembly for a file
 src/common.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/common.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/common.cpp.s
 .PHONY : src/common.cpp.s
 
 src/functions.o: src/functions.cpp.o
@@ -158,7 +182,7 @@ src/functions.o: src/functions.cpp.o
 
 # target to build an object file
 src/functions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/functions.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o
 .PHONY : src/functions.cpp.o
 
 src/functions.i: src/functions.cpp.i
@@ -166,7 +190,7 @@ src/functions.i: src/functions.cpp.i
 
 # target to preprocess a source file
 src/functions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/functions.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.i
 .PHONY : src/functions.cpp.i
 
 src/functions.s: src/functions.cpp.s
@@ -174,32 +198,8 @@ src/functions.s: src/functions.cpp.s
 
 # target to generate assembly for a file
 src/functions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/functions.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GitRepositoryManager.dir/build.make CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.s
 .PHONY : src/functions.cpp.s
-
-src/grm.o: src/grm.cpp.o
-.PHONY : src/grm.o
-
-# target to build an object file
-src/grm.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/grm.cpp.o
-.PHONY : src/grm.cpp.o
-
-src/grm.i: src/grm.cpp.i
-.PHONY : src/grm.i
-
-# target to preprocess a source file
-src/grm.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/grm.cpp.i
-.PHONY : src/grm.cpp.i
-
-src/grm.s: src/grm.cpp.s
-.PHONY : src/grm.s
-
-# target to generate assembly for a file
-src/grm.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grm.dir/build.make CMakeFiles/grm.dir/src/grm.cpp.s
-.PHONY : src/grm.cpp.s
 
 # Help Target
 help:
@@ -209,16 +209,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... grm"
+	@echo "... GitRepositoryManager"
+	@echo "... src/GitRepositoryManager.o"
+	@echo "... src/GitRepositoryManager.i"
+	@echo "... src/GitRepositoryManager.s"
 	@echo "... src/common.o"
 	@echo "... src/common.i"
 	@echo "... src/common.s"
 	@echo "... src/functions.o"
 	@echo "... src/functions.i"
 	@echo "... src/functions.s"
-	@echo "... src/grm.o"
-	@echo "... src/grm.i"
-	@echo "... src/grm.s"
 .PHONY : help
 
 

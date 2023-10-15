@@ -23,6 +23,7 @@ extern string scanResultFileAbsPath;
 extern string checkResultFileAbsPath;
 extern string manualFileAbsPath;
 extern unordered_map<string, FunctionVariant> commands;
+extern vector<string> repogitories;
 
 void initGlobalVariables();
 

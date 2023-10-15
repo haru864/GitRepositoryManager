@@ -54,12 +54,12 @@ void scan(const string dirPath) noexcept
     try
     {
         vector<string> localRepoList = getLocalRepogitoryList(dirPath);
-        FILE *f = fopen(scanResultFileAbsPath.c_str(), "w");
+        ofstream file(scanResultFileAbsPath);
         for (auto path : localRepoList)
         {
-            fprintf(f, path.c_str());
+            file << path;
         }
-        fclose(f);
+        file.close();
     }
     catch (const exception &e)
     {
@@ -149,16 +149,17 @@ void list() noexcept
 {
     try
     {
+        repogitories.clear();
         ifstream f(checkResultFileAbsPath);
         json jsonData = json::parse(f);
         f.close();
-        // cout << jsonData.dump() << endl;
         for (json::iterator it = jsonData.begin(); it != jsonData.end(); ++it)
         {
-            cout << "<" << it.key() << ">" << endl;
+            cout << "---" << it.key() << "---" << endl;
             for (auto elem : it.value())
             {
-                cout << elem << endl;
+                repogitories.push_back(elem);
+                cout << repogitories.size() << "." << elem << endl;
             }
             cout << endl;
         }
@@ -186,4 +187,28 @@ vector<string> splitString(string str, string separator)
         offset = pos + separator.length();
     }
     return result;
+}
+
+bool isRepogitoryNumber(string numberStr)
+{
+    try
+    {
+        int numberInt = stoi(numberStr);
+        int repogitoryIndex = numberInt - 1;
+        string repogitoryPath = repogitories[repogitoryIndex];
+        return true;
+    }
+    catch (const invalid_argument &e)
+    {
+        return false;
+    }
+    catch (const out_of_range &e)
+    {
+        return false;
+    }
+    catch (...)
+    {
+        return false;
+    }
+    return false;
 }

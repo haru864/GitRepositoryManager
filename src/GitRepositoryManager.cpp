@@ -11,10 +11,6 @@ int main(int argc, char **argv)
         cout << "> ";
         getline(cin, userInput);
         auto inputSeparatedBySpace = splitString(userInput, " ");
-        // for (auto s : inputSeparatedBySpace)
-        // {
-        //     cout << s << endl;
-        // }
         string command = inputSeparatedBySpace.at(0);
         string arg = inputSeparatedBySpace.size() >= 2 ? inputSeparatedBySpace.at(1) : "";
         if (command == "exit")
@@ -39,6 +35,15 @@ int main(int argc, char **argv)
             {
                 cout << "Command argument is invalid." << endl;
             }
+        }
+        else if (isRepogitoryNumber(command))
+        {
+            int repogitoryNumber = stoi(command);
+            int repogitoryIndex = repogitoryNumber - 1;
+            string repogitoryPath = repogitories.at(repogitoryIndex);
+            cout << "Opening repository in a new tab" << endl;
+            string command = "gnome-terminal --tab -- bash -c 'cd " + repogitoryPath + "; exec bash'";
+            system(command.c_str());
         }
         else
         {

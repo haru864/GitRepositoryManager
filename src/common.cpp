@@ -6,6 +6,7 @@ string scanResultFileAbsPath;
 string checkResultFileAbsPath;
 string manualFileAbsPath;
 unordered_map<string, FunctionVariant> commands;
+vector<string> repogitories;
 
 void initGlobalVariables()
 {
@@ -32,4 +33,5 @@ void initGlobalVariables()
         {"check", function<void()>(check)},
         {"list", function<void()>(list)},
     };
+    repogitories = {};
 }

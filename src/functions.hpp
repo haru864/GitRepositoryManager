@@ -11,5 +11,6 @@ void scan(const string) noexcept;
 void check() noexcept;
 void list() noexcept;
 vector<string> splitString(string, string);
+bool isRepogitoryNumber(string);
 
 #endif

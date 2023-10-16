@@ -76,8 +76,9 @@ void check() noexcept
 
         FILE *inFile = fopen(scanResultFileAbsPath.c_str(), "r");
         char buffer[BUFFER_SIZE];
-        vector<string> repogitoriesNotDifferFromRemote = {};
-        vector<string> repogitoriesDifferFromRemote = {};
+        vector<string> repogitoriesWithoutChanges = {};
+        vector<string> repogitoriesUntracked = {};
+        vector<string> repogitoriesUncommited = {};
 
         while (fgets(buffer, BUFFER_SIZE, inFile) != NULL)
         {
@@ -113,13 +114,37 @@ void check() noexcept
 
             size_t numOfDiff = git_status_list_entrycount(status);
             cout << pathWithoutLF << ", " << numOfDiff << endl;
-            if (numOfDiff > 0)
+            if (numOfDiff == 0)
             {
-                repogitoriesNotDifferFromRemote.push_back(pathWithoutLF);
+                repogitoriesWithoutChanges.push_back(pathWithoutLF);
             }
             else
             {
-                repogitoriesDifferFromRemote.push_back(pathWithoutLF);
+                const git_status_entry *s;
+                bool hasUntrackedChange = false;
+                bool hasUncommitedChange = false;
+                for (size_t i = 0; i < numOfDiff; ++i)
+                {
+                    s = git_status_byindex(status, i);
+                    if (s->head_to_index)
+                    {
+                        cout << "Modified: " << s->head_to_index->old_file.path << endl;
+                        hasUncommitedChange = true;
+                    }
+                    else if (s->index_to_workdir)
+                    {
+                        cout << "Untracked: " << s->index_to_workdir->old_file.path << endl;
+                        hasUntrackedChange = true;
+                    }
+                }
+                if (hasUntrackedChange)
+                {
+                    repogitoriesUntracked.push_back(pathWithoutLF);
+                }
+                if (hasUncommitedChange)
+                {
+                    repogitoriesUncommited.push_back(pathWithoutLF);
+                }
             }
 
             git_status_list_free(status);
@@ -129,8 +154,9 @@ void check() noexcept
         fclose(inFile);
 
         json j;
-        j["repogitory_not_doffer_from_remote"] = repogitoriesNotDifferFromRemote;
-        j["repogitory_doffer_from_remote"] = repogitoriesDifferFromRemote;
+        j["clean_repogitory"] = repogitoriesWithoutChanges;
+        j["untracked_repogitory"] = repogitoriesUntracked;
+        j["uncommited_repogitory"] = repogitoriesUncommited;
 
         ofstream file(checkResultFileAbsPath);
         file << j << endl;

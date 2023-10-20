@@ -5,6 +5,11 @@
 
 using json = nlohmann::json;
 
+void fetchAllAndPrune(git_repository *);
+void assignDirPathBasedOnGitStatus(git_repository *, vector<string> &, vector<string> &, vector<string> &);
+void listLocalBranches(git_repository *, vector<string> &);
+void listRemoteBranches(git_repository *, vector<string> &);
+
 vector<string> getLocalRepogitoryList(string dirPath)
 {
     const string command = "find " + dirPath + " -name \\.git";
@@ -83,8 +88,6 @@ void check() noexcept
         while (fgets(buffer, BUFFER_SIZE, inFile) != NULL)
         {
             git_repository *repo = nullptr;
-            git_status_list *status = nullptr;
-
             string pathWithLF = buffer;
             regex re("\n+$");
             string pathWithoutLF = regex_replace(pathWithLF, re, "");
@@ -97,57 +100,17 @@ void check() noexcept
                 exit(error);
             }
 
-            git_status_options statusopt = GIT_STATUS_OPTIONS_INIT;
-            statusopt.show = GIT_STATUS_SHOW_INDEX_AND_WORKDIR;
-            statusopt.flags = GIT_STATUS_OPT_INCLUDE_UNTRACKED |
-                              GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX |
-                              GIT_STATUS_OPT_SORT_CASE_SENSITIVELY;
+            fetchAllAndPrune(repo);
 
-            error = git_status_list_new(&status, repo, &statusopt);
-            if (error != 0)
-            {
-                git_repository_free(repo);
-                const git_error *e = git_error_last();
-                printf("Error %d/%d: %s\n", error, e->klass, e->message);
-                exit(error);
-            }
+            assignDirPathBasedOnGitStatus(repo, repogitoriesWithoutChanges, repogitoriesUntracked, repogitoriesUncommited);
 
-            size_t numOfDiff = git_status_list_entrycount(status);
-            cout << pathWithoutLF << ", " << numOfDiff << endl;
-            if (numOfDiff == 0)
-            {
-                repogitoriesWithoutChanges.push_back(pathWithoutLF);
-            }
-            else
-            {
-                const git_status_entry *s;
-                bool hasUntrackedChange = false;
-                bool hasUncommitedChange = false;
-                for (size_t i = 0; i < numOfDiff; ++i)
-                {
-                    s = git_status_byindex(status, i);
-                    if (s->head_to_index)
-                    {
-                        cout << "Modified: " << s->head_to_index->old_file.path << endl;
-                        hasUncommitedChange = true;
-                    }
-                    else if (s->index_to_workdir)
-                    {
-                        cout << "Untracked: " << s->index_to_workdir->old_file.path << endl;
-                        hasUntrackedChange = true;
-                    }
-                }
-                if (hasUntrackedChange)
-                {
-                    repogitoriesUntracked.push_back(pathWithoutLF);
-                }
-                if (hasUncommitedChange)
-                {
-                    repogitoriesUncommited.push_back(pathWithoutLF);
-                }
-            }
+            // TODO
+            // リモートとブランチのリストをマップで管理する
+            vector<string> localBranches = {};
+            vector<string> remoteBranches = {};
+            listLocalBranches(repo, localBranches);
+            listRemoteBranches(repo, remoteBranches);
 
-            git_status_list_free(status);
             git_repository_free(repo);
         }
 
@@ -237,4 +200,163 @@ bool isRepogitoryNumber(string numberStr)
         return false;
     }
     return false;
+}
+
+void assignDirPathBasedOnGitStatus(git_repository *repo, vector<string> &repogitoriesWithoutChanges, vector<string> &repogitoriesUntracked, vector<string> &repogitoriesUncommited)
+{
+    int error = 0;
+    git_status_list *status = nullptr;
+    const char *repo_path = git_repository_path(repo);
+    string repo_path_str = repo_path;
+
+    git_status_options statusopt = GIT_STATUS_OPTIONS_INIT;
+    statusopt.show = GIT_STATUS_SHOW_INDEX_AND_WORKDIR;
+    statusopt.flags = GIT_STATUS_OPT_INCLUDE_UNTRACKED |
+                      GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX |
+                      GIT_STATUS_OPT_SORT_CASE_SENSITIVELY;
+
+    error = git_status_list_new(&status, repo, &statusopt);
+    if (error != 0)
+    {
+        git_repository_free(repo);
+        const git_error *e = git_error_last();
+        printf("Error %d/%d: %s\n", error, e->klass, e->message);
+        exit(error);
+    }
+
+    size_t numOfDiff = git_status_list_entrycount(status);
+    cout << repo_path_str << ", " << numOfDiff << endl;
+    if (numOfDiff == 0)
+    {
+        repogitoriesWithoutChanges.push_back(repo_path_str);
+    }
+    else
+    {
+        const git_status_entry *s;
+        bool hasUntrackedChange = false;
+        bool hasUncommitedChange = false;
+        for (size_t i = 0; i < numOfDiff; ++i)
+        {
+            s = git_status_byindex(status, i);
+            if (s->head_to_index)
+            {
+                cout << "Modified: " << s->head_to_index->old_file.path << endl;
+                hasUncommitedChange = true;
+            }
+            else if (s->index_to_workdir)
+            {
+                cout << "Untracked: " << s->index_to_workdir->old_file.path << endl;
+                hasUntrackedChange = true;
+            }
+        }
+        if (hasUntrackedChange)
+        {
+            repogitoriesUntracked.push_back(repo_path_str);
+        }
+        if (hasUncommitedChange)
+        {
+            repogitoriesUncommited.push_back(repo_path_str);
+        }
+    }
+
+    git_status_list_free(status);
+}
+
+void fetchAllAndPrune(git_repository *repo)
+{
+    git_strarray remotes = {0};
+    if (git_remote_list(&remotes, repo) != 0)
+    {
+        const git_error *e = git_error_last();
+        cerr << "Error getting remotes: " << e->message << endl;
+        exit(1);
+    }
+
+    for (size_t i = 0; i < remotes.count; ++i)
+    {
+        git_remote *remote = nullptr;
+        const char *remote_name = remotes.strings[i];
+
+        if (git_remote_lookup(&remote, repo, remote_name) != 0)
+        {
+            const git_error *e = git_error_last();
+            cerr << "Error looking up remote '" << remote_name << "': " << e->message << endl;
+            continue;
+        }
+
+        if (git_remote_fetch(remote, nullptr, nullptr, nullptr) != 0)
+        {
+            const git_error *e = git_error_last();
+            cerr << "Error fetching remote '" << remote_name << "': " << e->message << endl;
+        }
+
+        git_fetch_options fetch_opts = GIT_FETCH_OPTIONS_INIT;
+        fetch_opts.prune = GIT_FETCH_PRUNE;
+
+        if (git_remote_fetch(remote, nullptr, &fetch_opts, nullptr) != 0)
+        {
+            const git_error *e = git_error_last();
+            cerr << "Error pruning remote '" << remote_name << "': " << e->message << endl;
+        }
+
+        git_remote_free(remote);
+    }
+
+    git_strarray_dispose(&remotes);
+}
+
+void listLocalBranches(git_repository *repo, vector<string> &localBranches)
+{
+    git_branch_iterator *it;
+    if (git_branch_iterator_new(&it, repo, GIT_BRANCH_LOCAL) != 0)
+    {
+        const git_error *e = git_error_last();
+        cerr << "Error creating branch iterator: " << e->message << endl;
+        exit(1);
+    }
+
+    git_reference *ref;
+    git_branch_t type;
+    while (git_branch_next(&ref, &type, it) == 0)
+    {
+        const char *branch_name;
+        if (git_branch_name(&branch_name, ref) != 0)
+        {
+            const git_error *e = git_error_last();
+            cerr << "Error retrieving branch name: " << e->message << endl;
+            continue;
+        }
+        cout << "Local branch: " << branch_name << endl;
+        git_reference_free(ref);
+    }
+
+    git_branch_iterator_free(it);
+}
+
+void listRemoteBranches(git_repository *repo, vector<string> &remoteBranches)
+{
+    git_branch_iterator *it;
+    if (git_branch_iterator_new(&it, repo, GIT_BRANCH_REMOTE) != 0)
+    {
+        const git_error *e = git_error_last();
+        cerr << "Error creating branch iterator: " << e->message << endl;
+        exit(1);
+    }
+
+    git_reference *ref;
+    git_branch_t type;
+    while (git_branch_next(&ref, &type, it) == 0)
+    {
+        const char *branch_name;
+        if (git_branch_name(&branch_name, ref) != 0)
+        {
+            const git_error *e = git_error_last();
+            cerr << "Error retrieving branch name: " << e->message << endl;
+            continue;
+        }
+        cout << "Remote branch: " << branch_name << endl;
+        git_reference_free(ref);
+    }
+
+    git_branch_iterator_free(it);
 }

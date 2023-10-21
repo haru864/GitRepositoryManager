@@ -8,7 +8,7 @@ using json = nlohmann::json;
 void fetchAllAndPrune(git_repository *);
 void assignDirPathBasedOnGitStatus(git_repository *, vector<string> &, vector<string> &, vector<string> &);
 void listLocalBranches(git_repository *, vector<string> &);
-void listRemoteBranches(git_repository *, vector<string> &);
+void listRemoteBranches(git_repository *, vector<string> &, unordered_map<string, set<string>> &);
 
 vector<string> getLocalRepogitoryList(string dirPath)
 {
@@ -104,12 +104,29 @@ void check() noexcept
 
             assignDirPathBasedOnGitStatus(repo, repogitoriesWithoutChanges, repogitoriesUntracked, repogitoriesUncommited);
 
-            // TODO
-            // リモートとブランチのリストをマップで管理する
             vector<string> localBranches = {};
-            vector<string> remoteBranches = {};
+            vector<string> remotes = {};
+            unordered_map<string, set<string>> remoteBranches;
             listLocalBranches(repo, localBranches);
-            listRemoteBranches(repo, remoteBranches);
+            listRemoteBranches(repo, remotes, remoteBranches);
+            cout << "Local branches:" << endl;
+            for (auto localBranch : localBranches)
+            {
+                cout << " " << localBranch << endl;
+            }
+            cout << "Remote branches:" << endl;
+            for (auto remote : remotes)
+            {
+                cout << " " << remote << endl;
+                auto branches = remoteBranches[remote];
+                for (auto remoteBranch : branches)
+                {
+                    cout << "  " << remoteBranch << endl;
+                }
+            }
+
+            // TODO
+            // diffBetweenLocalAndRemote()
 
             git_repository_free(repo);
         }
@@ -319,21 +336,21 @@ void listLocalBranches(git_repository *repo, vector<string> &localBranches)
     git_branch_t type;
     while (git_branch_next(&ref, &type, it) == 0)
     {
-        const char *branch_name;
-        if (git_branch_name(&branch_name, ref) != 0)
+        const char *localBranchName;
+        if (git_branch_name(&localBranchName, ref) != 0)
         {
             const git_error *e = git_error_last();
             cerr << "Error retrieving branch name: " << e->message << endl;
             continue;
         }
-        cout << "Local branch: " << branch_name << endl;
+        localBranches.push_back(localBranchName);
         git_reference_free(ref);
     }
 
     git_branch_iterator_free(it);
 }
 
-void listRemoteBranches(git_repository *repo, vector<string> &remoteBranches)
+void listRemoteBranches(git_repository *repo, vector<string> &remotes, unordered_map<string, set<string>> &remoteBranches)
 {
     git_branch_iterator *it;
     if (git_branch_iterator_new(&it, repo, GIT_BRANCH_REMOTE) != 0)
@@ -347,14 +364,20 @@ void listRemoteBranches(git_repository *repo, vector<string> &remoteBranches)
     git_branch_t type;
     while (git_branch_next(&ref, &type, it) == 0)
     {
-        const char *branch_name;
-        if (git_branch_name(&branch_name, ref) != 0)
+        const char *remoteBranchName;
+        if (git_branch_name(&remoteBranchName, ref) != 0)
         {
             const git_error *e = git_error_last();
             cerr << "Error retrieving branch name: " << e->message << endl;
             continue;
         }
-        cout << "Remote branch: " << branch_name << endl;
+        string remoteBranchNameStr(remoteBranchName);
+        size_t pos = remoteBranchNameStr.find('/');
+        string remoteName = remoteBranchNameStr.substr(0, pos);
+        string branchName = remoteBranchNameStr.substr(pos + 1);
+        remotes.push_back(remoteName);
+        remoteBranches[remoteName].insert(branchName);
+
         git_reference_free(ref);
     }
 

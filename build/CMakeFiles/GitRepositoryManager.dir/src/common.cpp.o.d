@@ -231,5 +231,7 @@ CMakeFiles/GitRepositoryManager.dir/src/common.cpp.o: \
  /usr/include/c++/11/bits/regex.h /usr/include/c++/11/bits/regex.tcc \
  /usr/include/c++/11/bits/regex_executor.h \
  /usr/include/c++/11/bits/regex_executor.tcc /usr/include/c++/11/variant \
- /usr/include/c++/11/bits/parse_numbers.h \
+ /usr/include/c++/11/bits/parse_numbers.h /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
  /home/haru/project/GitRepositoryManager/src/functions.hpp

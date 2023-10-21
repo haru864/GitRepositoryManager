@@ -289,6 +289,9 @@ CMakeFiles/GitRepositoryManager.dir/src/GitRepositoryManager.cpp.o: ../src/GitRe
   /usr/include/c++/11/bits/regex_executor.tcc \
   /usr/include/c++/11/variant \
   /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
   ../src/functions.hpp
 
 CMakeFiles/GitRepositoryManager.dir/src/common.cpp.o: ../src/common.cpp \
@@ -579,6 +582,9 @@ CMakeFiles/GitRepositoryManager.dir/src/common.cpp.o: ../src/common.cpp \
   /usr/include/c++/11/bits/regex_executor.tcc \
   /usr/include/c++/11/variant \
   /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
   ../src/functions.hpp
 
 CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o: ../src/functions.cpp \
@@ -869,6 +875,9 @@ CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o: ../src/functions.cpp \
   /usr/include/c++/11/bits/regex_executor.tcc \
   /usr/include/c++/11/variant \
   /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
   ../src/functions.hpp \
   ../include/git2.h \
   ../include/git2/annotated_commit.h \
@@ -1060,8 +1069,6 @@ CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o: ../src/functions.cpp \
 
 /usr/include/c++/11/bits/mask_array.h:
 
-/usr/include/c++/11/bits/gslice_array.h:
-
 /usr/include/c++/11/bits/valarray_after.h:
 
 /usr/include/c++/11/bits/slice_array.h:
@@ -1156,8 +1163,6 @@ CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o: ../src/functions.cpp \
 
 ../include/git2/refspec.h:
 
-../include/git2/clone.h:
-
 ../include/git2/oidarray.h:
 
 ../include/git2/merge.h:
@@ -1213,6 +1218,16 @@ CMakeFiles/GitRepositoryManager.dir/src/functions.cpp.o: ../src/functions.cpp \
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
 
 ../src/functions.hpp:
+
+/usr/include/c++/11/bits/stl_multiset.h:
+
+/usr/include/c++/11/bits/gslice_array.h:
+
+/usr/include/c++/11/bits/stl_set.h:
+
+../include/git2/clone.h:
+
+/usr/include/c++/11/set:
 
 /usr/include/c++/11/bits/parse_numbers.h:
 

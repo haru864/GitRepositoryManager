@@ -13,6 +13,7 @@
 #include <variant>
 #include <unordered_map>
 #include <set>
+#include <algorithm>
 #include "functions.hpp"
 
 using namespace std;

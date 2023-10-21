@@ -6,9 +6,11 @@
 using json = nlohmann::json;
 
 void fetchAllAndPrune(git_repository *);
-void assignDirPathBasedOnGitStatus(git_repository *, vector<string> &, vector<string> &, vector<string> &);
+void assignDirPathBasedOnGitStatus(string, git_repository *, vector<string> &, vector<string> &, vector<string> &);
 void listLocalBranches(git_repository *, vector<string> &);
 void listRemoteBranches(git_repository *, vector<string> &, unordered_map<string, set<string>> &);
+bool hasLocalBranchesNotPushed(vector<string>, vector<string>, unordered_map<string, set<string>>);
+vector<pair<string, vector<string>>> diffBetweenLocalAndRemote(vector<string>, vector<string>, unordered_map<string, set<string>>);
 
 vector<string> getLocalRepogitoryList(string dirPath)
 {
@@ -84,6 +86,8 @@ void check() noexcept
         vector<string> repogitoriesWithoutChanges = {};
         vector<string> repogitoriesUntracked = {};
         vector<string> repogitoriesUncommited = {};
+        vector<string> repogitoriesNotPushed = {};
+        vector<pair<string, vector<string>>> repogitoriesWithDiff = {};
 
         while (fgets(buffer, BUFFER_SIZE, inFile) != NULL)
         {
@@ -100,9 +104,11 @@ void check() noexcept
                 exit(error);
             }
 
+            // git fetch -all, git fetch --prune
             fetchAllAndPrune(repo);
 
-            assignDirPathBasedOnGitStatus(repo, repogitoriesWithoutChanges, repogitoriesUntracked, repogitoriesUncommited);
+            // git status
+            assignDirPathBasedOnGitStatus(pathWithoutLF, repo, repogitoriesWithoutChanges, repogitoriesUntracked, repogitoriesUncommited);
 
             vector<string> localBranches = {};
             vector<string> remotes = {};
@@ -112,21 +118,28 @@ void check() noexcept
             cout << "Local branches:" << endl;
             for (auto localBranch : localBranches)
             {
-                cout << " " << localBranch << endl;
+                cout << "  " << localBranch << endl;
             }
             cout << "Remote branches:" << endl;
             for (auto remote : remotes)
             {
-                cout << " " << remote << endl;
+                cout << "  " << remote << endl;
                 auto branches = remoteBranches[remote];
                 for (auto remoteBranch : branches)
                 {
-                    cout << "  " << remoteBranch << endl;
+                    cout << "    " << remoteBranch << endl;
                 }
             }
 
+            // どのリモートにも存在しないローカルブランチをリストアップする
+            if (hasLocalBranchesNotPushed(localBranches, remotes, remoteBranches))
+            {
+                repogitoriesNotPushed.push_back(pathWithoutLF);
+            }
+
             // TODO
-            // diffBetweenLocalAndRemote()
+            // リモートごとにローカルブランチとgit diffして、差分がないかチェックする
+            repogitoriesWithDiff = diffBetweenLocalAndRemote(localBranches, remotes, remoteBranches);
 
             git_repository_free(repo);
         }
@@ -134,9 +147,11 @@ void check() noexcept
         fclose(inFile);
 
         json j;
-        j["clean_repogitory"] = repogitoriesWithoutChanges;
-        j["untracked_repogitory"] = repogitoriesUntracked;
-        j["uncommited_repogitory"] = repogitoriesUncommited;
+        j["clean"] = repogitoriesWithoutChanges;
+        j["untracked_changes"] = repogitoriesUntracked;
+        j["uncommited_changes"] = repogitoriesUncommited;
+        j["unpushed_branch"] = repogitoriesNotPushed;
+        j["difference_branch"] = repogitoriesWithDiff;
 
         ofstream file(checkResultFileAbsPath);
         file << j << endl;
@@ -219,12 +234,10 @@ bool isRepogitoryNumber(string numberStr)
     return false;
 }
 
-void assignDirPathBasedOnGitStatus(git_repository *repo, vector<string> &repogitoriesWithoutChanges, vector<string> &repogitoriesUntracked, vector<string> &repogitoriesUncommited)
+void assignDirPathBasedOnGitStatus(string dirPath, git_repository *repo, vector<string> &repogitoriesWithoutChanges, vector<string> &repogitoriesUntracked, vector<string> &repogitoriesUncommited)
 {
     int error = 0;
     git_status_list *status = nullptr;
-    const char *repo_path = git_repository_path(repo);
-    string repo_path_str = repo_path;
 
     git_status_options statusopt = GIT_STATUS_OPTIONS_INIT;
     statusopt.show = GIT_STATUS_SHOW_INDEX_AND_WORKDIR;
@@ -242,10 +255,10 @@ void assignDirPathBasedOnGitStatus(git_repository *repo, vector<string> &repogit
     }
 
     size_t numOfDiff = git_status_list_entrycount(status);
-    cout << repo_path_str << ", " << numOfDiff << endl;
+    cout << dirPath << ", changes: " << numOfDiff << endl;
     if (numOfDiff == 0)
     {
-        repogitoriesWithoutChanges.push_back(repo_path_str);
+        repogitoriesWithoutChanges.push_back(dirPath);
     }
     else
     {
@@ -268,11 +281,11 @@ void assignDirPathBasedOnGitStatus(git_repository *repo, vector<string> &repogit
         }
         if (hasUntrackedChange)
         {
-            repogitoriesUntracked.push_back(repo_path_str);
+            repogitoriesUntracked.push_back(dirPath);
         }
         if (hasUncommitedChange)
         {
-            repogitoriesUncommited.push_back(repo_path_str);
+            repogitoriesUncommited.push_back(dirPath);
         }
     }
 
@@ -382,4 +395,33 @@ void listRemoteBranches(git_repository *repo, vector<string> &remotes, unordered
     }
 
     git_branch_iterator_free(it);
+}
+
+bool hasLocalBranchesNotPushed(vector<string> localBranches, vector<string> remotes, unordered_map<string, set<string>> remoteBranches)
+{
+    set<string> remoteBranchSet = {};
+    for (const auto remote_to_branches : remoteBranches)
+    {
+        auto remote = remote_to_branches.first;
+        auto branches = remote_to_branches.second;
+        for (const auto branch : branches)
+        {
+            remoteBranchSet.insert(branch);
+        }
+    }
+    for (const auto localBranch : localBranches)
+    {
+        if (remoteBranchSet.find(localBranch) == remoteBranchSet.end())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+vector<pair<string, vector<string>>>
+diffBetweenLocalAndRemote(vector<string> localBranches, vector<string> remotes, unordered_map<string, set<string>> remoteBranches)
+{
+    vector<pair<string, vector<string>>> repogitoriesWithDiff = {};
+    return repogitoriesWithDiff;
 }

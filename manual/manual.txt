@@ -1,12 +1,11 @@
-usage: grm [scan|check|list|all] <directory>
+scan <absolute-directory-path>
+    Search directory and those under it for Git local repogitory.
 
-directory must be specified when you use "scan" or "all".
-
-grm scan <directory>
-    Search <directory> and those under it for Git local repogitory.
-
-grm check
+check
     Check the repogitories found by "scan" for differences from the remote.
 
-grm list
+list
     Display the result of "check".
+
+exit
+    exit application

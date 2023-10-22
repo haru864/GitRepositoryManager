@@ -5,8 +5,3 @@
 /home/haru/project/Recursion/Recursion_OnlineChatMessenger
 /home/haru/project/Recursion/VideoCompressorService
 /home/haru/project/Recursion/Recursion_LocalChatMessenger
-/home/haru/project/UEC/purotsuu/StickRunner
-/home/haru/project/GitRepositoryManager
-/home/haru/project/DeepL_for_Firefox
-/home/haru/project/ToDoApp
-/home/haru/project/HttpServer

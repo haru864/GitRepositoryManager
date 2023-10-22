@@ -10,7 +10,8 @@ void assignDirPathBasedOnGitStatus(string, git_repository *, vector<string> &, v
 void listLocalBranches(git_repository *, vector<string> &);
 void listRemoteBranches(git_repository *, vector<string> &, unordered_map<string, set<string>> &);
 bool hasLocalBranchesNotPushed(vector<string>, vector<string>, unordered_map<string, set<string>>);
-vector<pair<string, vector<string>>> diffBetweenLocalAndRemote(vector<string>, vector<string>, unordered_map<string, set<string>>);
+bool hasDiffBetweenLocalAndRemote(git_repository *, vector<string>, unordered_map<string, set<string>>);
+int diff_is_empty_cb(const git_diff_delta *, float, void *);
 
 vector<string> getLocalRepogitoryList(string dirPath)
 {
@@ -87,7 +88,7 @@ void check() noexcept
         vector<string> repogitoriesUntracked = {};
         vector<string> repogitoriesUncommited = {};
         vector<string> repogitoriesNotPushed = {};
-        vector<pair<string, vector<string>>> repogitoriesWithDiff = {};
+        vector<string> repogitoriesWithDiff = {};
 
         while (fgets(buffer, BUFFER_SIZE, inFile) != NULL)
         {
@@ -139,7 +140,10 @@ void check() noexcept
 
             // TODO
             // リモートごとにローカルブランチとgit diffして、差分がないかチェックする
-            repogitoriesWithDiff = diffBetweenLocalAndRemote(localBranches, remotes, remoteBranches);
+            if (hasDiffBetweenLocalAndRemote(repo, localBranches, remoteBranches))
+            {
+                repogitoriesWithDiff.push_back(pathWithoutLF);
+            }
 
             git_repository_free(repo);
         }
@@ -419,9 +423,115 @@ bool hasLocalBranchesNotPushed(vector<string> localBranches, vector<string> remo
     return false;
 }
 
-vector<pair<string, vector<string>>>
-diffBetweenLocalAndRemote(vector<string> localBranches, vector<string> remotes, unordered_map<string, set<string>> remoteBranches)
+bool hasDiffBetweenLocalAndRemote(git_repository *repo, vector<string> localBranches, unordered_map<string, set<string>> remoteBranches)
 {
-    vector<pair<string, vector<string>>> repogitoriesWithDiff = {};
-    return repogitoriesWithDiff;
+    int error = 0;
+    git_commit *local_commit = NULL;
+    git_commit *remote_commit = NULL;
+    git_tree *local_tree = NULL;
+    git_tree *remote_tree = NULL;
+    git_diff *diff_local_to_remote = NULL;
+    git_diff *diff_remote_to_local = NULL;
+    const git_error *e = NULL;
+    bool hasDiff = false;
+
+    for (const auto remote_to_branches : remoteBranches)
+    {
+        const string remote_name = remote_to_branches.first;
+        const set<string> remote_branch_name_set = remote_to_branches.second;
+
+        for (const string local_branch_name : localBranches)
+        {
+            const auto itr = remote_branch_name_set.find(local_branch_name);
+            if (itr == remote_branch_name_set.end())
+            {
+                continue;
+            }
+
+            string remote_branch_name = remote_name + "/" + *itr;
+            cout << "checking difference between " << local_branch_name << " and " << remote_branch_name << endl;
+
+            // ローカルブランチの最新コミットを取得
+            error = git_revparse_single((git_object **)&local_commit, repo, local_branch_name.c_str());
+            if (error != 0)
+            {
+                e = git_error_last();
+                std::cerr << "Error finding local branch commit: " << e->message << std::endl;
+                goto cleanup;
+            }
+
+            // リモートブランチの最新コミットを取得
+            error = git_revparse_single((git_object **)&remote_commit, repo, remote_branch_name.c_str());
+            if (error != 0)
+            {
+                e = git_error_last();
+                std::cerr << "Error finding remote branch commit: " << e->message << std::endl;
+                goto cleanup;
+            }
+
+            // 各コミットからツリーを取得
+            error = git_commit_tree(&local_tree, local_commit);
+            if (error != 0)
+            {
+                e = git_error_last();
+                std::cerr << "Error getting local commit tree: " << e->message << std::endl;
+                goto cleanup;
+            }
+
+            error = git_commit_tree(&remote_tree, remote_commit);
+            if (error != 0)
+            {
+                e = git_error_last();
+                std::cerr << "Error getting remote commit tree: " << e->message << std::endl;
+                goto cleanup;
+            }
+
+            // 二つのツリー間の差分を計算
+            error = git_diff_tree_to_tree(&diff_local_to_remote, repo, local_tree, remote_tree, NULL);
+            if (error != 0)
+            {
+                e = git_error_last();
+                std::cerr << "Error creating diff: " << e->message << std::endl;
+                goto cleanup;
+            }
+
+            error = git_diff_tree_to_tree(&diff_remote_to_local, repo, remote_tree, local_tree, NULL);
+            if (error != 0)
+            {
+                e = git_error_last();
+                std::cerr << "Error creating diff: " << e->message << std::endl;
+                goto cleanup;
+            }
+
+            bool diff_is_empty = true;
+            git_diff_foreach(diff_local_to_remote, diff_is_empty_cb, NULL, NULL, NULL, &diff_is_empty);
+            if (diff_is_empty == false)
+            {
+                return true;
+            }
+            git_diff_foreach(diff_remote_to_local, diff_is_empty_cb, NULL, NULL, NULL, &diff_is_empty);
+            if (diff_is_empty == false)
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
+
+cleanup:
+    git_commit_free(local_commit);
+    git_commit_free(remote_commit);
+    git_tree_free(local_tree);
+    git_tree_free(remote_tree);
+    git_diff_free(diff_local_to_remote);
+    git_diff_free(diff_remote_to_local);
+
+    throw runtime_error("Error occured when take a difference between local and remote");
+}
+
+int diff_is_empty_cb(const git_diff_delta *delta, float progress, void *payload)
+{
+    *(bool *)payload = false;
+    return 1;
 }

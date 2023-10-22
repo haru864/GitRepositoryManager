@@ -42,11 +42,11 @@ tmp/repository_abspath_list.txt
 
 ![Screenshot from 2023-10-23 00-07-34](https://github.com/haru864/GitRepositoryManager/assets/45516420/034eaa14-2c01-47f5-929f-e2d8b9bccd25)
 
-**help** を実行して、**scan** で発見したリポジトリの状態をチェックします。
+**check** を実行して、**scan** で発見したリポジトリの状態をチェックします。
 
 ![Screenshot from 2023-10-23 00-10-13](https://github.com/haru864/GitRepositoryManager/assets/45516420/fe45f9a6-5873-4b71-aa76-8cd630c83bbd)
 
-**help** を実行して **scan** 結果を表示します。<br>
+**list** を実行して **check** 結果を表示します。<br>
 リポジトリの状態は5種類に分けられます。<br>
 1. clean コミットされていない変更がなく、ローカルとリモートでコミット差分もない
 2. difference_branch いずれかのブランチでローカルとリモートでコミット差分がある
